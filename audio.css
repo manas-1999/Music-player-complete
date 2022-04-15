@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,500;1,600;1,800&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root
+{
+    --pink:#ff74a4;
+    --violet:#9f6ea3;
+    --lightblack:#515C6F;
+    --white:#ffff;
+    --darkwhite:#cecaca;
+    --pinkshadow:#ffcbdd;
+    --lightbshadow:rgba(0,0,0,0.15);
+
+}
+.audio_player
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.player-box
+{
+    padding-top:11px;
+    background-color: var(--white);
+    cursor: pointer;
+      width: 23%;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow: 0px 6px 15px var(--lightbshadow);
+      position: relative;
+      overflow: hidden;
+     
+}
+
+.player-name
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.player-name i{
+    font-size: 20px;
+    color: var(--lightblack);
+}
+
+.player-name span
+{
+    font-size: 18px;
+    color: var(--lightblack);
+}
+
+.img-box
+{
+    width: 80%;
+    height: 183px;
+    margin-top: 25px;
+    overflow: hidden;
+    background-color: cadetblue;
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px var(--lightbshadow);
+}
+
+.img-box img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+ 
+ .player-controller
+ {
+     margin: 20px 0px 20px 0px;
+ }
+
+ .player-controller .clikced_me
+ {
+     /* font-size: 35px; */
+     background: #515C6F;
+     /* background: linear-gradient(90deg,var(--white) 0%,var(--darkwhite) 100%); */
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color:transparent;
+ }
+
+ .song-name
+ {
+     text-align: center;
+     margin: 10px;
+     margin: 22px 0px;
+ }
+
+ .song-name .name{
+     font-size: 18px;
+ }
+
+ .song-name .artist{
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.progress-bar
+ {
+     width:80%;
+     height: 6px;
+     border-radius: 50px;
+     background-color:#f0f0f0;
+ }
+ .progress-area
+ {
+    position: relative;
+     height: inherit;
+     width: 1%;
+     background-color: #ff74a4;
+     border-radius: inherit;
+     background: linear-gradient(90deg,var(--pink) 0%,var(--violet) 100%);
+ }
+ .progress-area::after
+ {
+     content: '';
+     position: absolute;
+     height: 12px;
+     width: 12px;
+     background: black;
+     border-radius: inherit;
+     top: 50%;
+     right: -5px;
+     transform: translateY(-50%);
+     background: inherit;
+     opacity: 0;
+     transition: opacity 0.2s ease;
+
+ }
+
+ .progress-bar:hover .progress-area::after
+ {
+     opacity: 1;
+ }
+ .progress-bar .timer
+ {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2px;
+
+ }
+ .progress-bar .timer span
+ {
+    font-size: 13px;
+    color: var(--lightblack);
+
+ }
+
+ .player-controller
+ {
+     width: 100%;
+     margin: 30px 0px 20px 0px;
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     padding: 0px 15px 0px 15px;
+ }
+ .player-controller i
+ {
+   font-size: 28px;
+   user-select: none;
+   background: linear-gradient(90deg,var(--pink) 0%,var(--violet) 100%);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color:transparent;
+ }
+
+ .player-controller i:nth-child(2),
+ .player-controller i:nth-child(4)
+ {
+     font-size: 43px;
+ }
+ .play-pause
+ {
+     width: 42px;
+     height: 42px;
+     background: linear-gradient(90deg,var(--white) 0%,var(--darkwhite) 100%);
+     box-shadow: 0px 0px 5px var(--pink);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .play-pause::before
+ {
+     content:"";
+     position: absolute;
+     background: linear-gradient(90deg,var(--pink) 0%,var(--violet) 100%);
+     height: 30px;
+     width: 30px;
+     border-radius: inherit;
+     /* opacity: 0; */
+
+ }
+
+ .play-pause i{
+     width: 30px;
+     height: 30px;
+     position: relative;
+     text-align: center;
+     border-radius: inherit;
+   
+      background: inherit; 
+     /* background: linear-gradient(90deg,var(--white) 0%,var(--darkwhite) 100%); */
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color:transparent;
+ }  
+
+ #pause
+ {
+    
+     position: absolute;
+     display: none;
+ }
+
+ .music-list
+ {
+     bottom: 0;
+     left: 0;
+     position: absolute;
+     width: 100%;
+     background: var(--white);
+     box-shadow: 0px 6px 15px var(--lightbshadow);
+     border-radius: 8px;
+     padding: 15px 30px;
+     bottom: -62%; 
+     opacity: 0;
+     pointer-events: none;
+     transition: all 0.14s ease-out;
+ }
+
+ .music-list.show
+ {
+     bottom: 0;
+     opacity: 1;
+     pointer-events: auto;
+ }
+
+ .music-list .header,.music-list li{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .music-list li
+ {
+     list-style: none;
+ }
+.music-list .header .row
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    color: var(--lightblack);
+}
+
+.header .row i{
+    cursor: default;
+}
+
+.header #close
+{ 
+    font-size: 22px;
+    color: var(--lightblack);
+}
+
+.header .row span{
+    margin-left: 5px;
+}
+
+.music-list ul{
+    margin: 10px 0px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.music-list ul::-webkit-scrollbar{
+ width:0px;
+}
+
+.music-list ul li{
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+        color: var(--lightblack);
+}
+
+.music-list ul li:last-child{
+    border-bottom:0px;
+}
+ 
+.music-list ul li .row span{
+    font-size: 17px;
+}
+
+.music-list ul li .row p{
+    opacity: 0.9;
+}
+
+.music-list ul li.audio-duration
+{
+    font-size: 16px;
+}
+
+/* making responsive */
+@media screen and (max-width: 500px) {
+    .player-box {
+     width: 77%; 
+}
+}
+
+@media screen and (min-width: 800px) and (max-width:1024px) {
+    .player-box {
+     width: 34%; 
+}
+}
